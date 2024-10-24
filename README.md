@@ -1,5 +1,5 @@
 # ArgoCD ApplicationSet using a Git Generator to Deploy Apps
-This is a quick and dirty guide to using ArgoCD ApplicationSets to iterate through a Git Repository and install multiple applications dynamically, a GitOps patthen.
+This is a quick and dirty guide to using ArgoCD ApplicationSets to iterate through a Git Repository and install multiple applications dynamically, a GitOps pattern.
 
 Note: The namespace generator is reliant on https://github.com/kcsoukup/k8-namespace-provisioning for Helm dependencies... another area of study.
 
@@ -27,7 +27,7 @@ Each namespace has its own Helm Charts, which uses a dependency Helm Chart for c
 ```
 
 #### Namespace Values File
-To add new namespace: duplicate other, change directory name and then update values.yaml namespace.name
+To add new namespace: duplicate other namespace directory, change directory name and then update values.yaml namespace.name.
 ```
 k8-namespace-provisioning:
   namespace:
@@ -35,7 +35,8 @@ k8-namespace-provisioning:
 ```
 
 #### ApplicationSet Manifest
-nano applicationset.yaml
+
+Contents of applicationset.yaml
 ```
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -84,10 +85,8 @@ Check Kubernetes
 ```
 NAME                   STATUS   AGE
 argocd                 Active   6d6h
-auth-proxy             Active   21h
 damage-inc             Active   17d
 default                Active   18d
-dev                    Active   4d6h
 ingress-nginx          Active   17d
 kube-flannel           Active   18d
 kube-node-lease        Active   18d
@@ -98,7 +97,6 @@ megadeth               Active   21m  <-- Worked!
 metallb-system         Active   17d
 mushroomhead           Active   21m  <-- Worked!
 pantera                Active   16m  <-- Worked!
-prod                   Active   4d4h
 slayer                 Active   16m  <-- Worked!
 ```
 
