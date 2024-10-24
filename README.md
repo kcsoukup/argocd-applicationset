@@ -74,12 +74,14 @@ spec:
 ```
 
 Apply manifest
+
 `kubectl apply  -f applicationset.yaml -n argocd`
 
 #### Check Points
 ArgoCD should show the Namespace apps within 3mins
 
 Check Kubernetes
+
 `kubectl get namespaces`
 
 ```
@@ -101,6 +103,7 @@ slayer                 Active   16m  <-- Worked!
 ```
 
 ...or...
+
 `argocd app list`
 
 ```
