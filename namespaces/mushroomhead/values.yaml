@@ -1,0 +1,3 @@
+k8-namespace-provisioning:
+  namespace:
+    name: mushroomhead

@@ -1,0 +1,8 @@
+apiVersion: v2
+name: provision-namespace
+description: A Helm chart for Kubernetes Namespaces
+version: 0.1.1
+dependencies:
+  - name: k8-namespace-provisioning
+    version: "0.1.0"
+    repository: "https://raw.githubusercontent.com/kcsoukup/k8-namespace-provisioning/main/"
