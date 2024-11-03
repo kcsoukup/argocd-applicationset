@@ -1,0 +1,32 @@
+k8-argocd-provisioning:
+  appproject:
+    name: night-stalkers
+    description: "Night Stalkers Application"
+    repositories:
+      - https://github.com/kcsoukup/argocd-apps.git
+    destinations:
+      namespace: megadeth
+      server: https://kubernetes.default.svc
+
+  application:
+    name: night-stalkers
+    source:
+      repoURL: https://github.com/kcsoukup/argocd-apps.git
+      path: night-stalkers
+      targetRevision: HEAD
+      helm:
+        valueFiles:
+          - values.yaml
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: megadeth
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      retry:
+        limit: 3
+        backoff:
+          duration: "5s"
+          factor: 2
+          maxDuration: "3m"
