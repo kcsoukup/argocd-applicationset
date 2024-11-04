@@ -8,7 +8,7 @@ Note: The namespace generator is reliant on https://github.com/kcsoukup/k8-names
 Each namespace has its own Helm Charts, which uses a dependency Helm Chart for consistency
 ```
 .
-├── applicationset.yaml
+├── namespace-applicationset.yaml
 ├── namespaces
 │   ├── megadeth
 │   │   ├── Chart.yaml
@@ -36,7 +36,7 @@ k8-namespace-provisioning:
 
 #### ApplicationSet Manifest
 
-Contents of applicationset.yaml
+Contents of namespace-applicationset.yaml
 ```
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -75,7 +75,7 @@ spec:
 
 Apply manifest
 
-`kubectl apply  -f applicationset.yaml -n argocd`
+`kubectl apply  -f namespace-applicationset.yaml -n argocd`
 
 #### Check Points
 ArgoCD should show the Namespace apps within 3mins

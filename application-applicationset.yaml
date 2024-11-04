@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: helm-applications
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/kcsoukup/argocd-applicationset.git
+        revision: HEAD
+        directories:
+          - path: "applications/*"
+  template:
+    metadata:
+      name: '{{path.basename}}-appset-application'
+      annotations:
+        argocd.argoproj.io/sync-wave: "1"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/kcsoukup/argocd-applicationset.git
+        targetRevision: HEAD
+        path: '{{path}}'
+        helm:
+          valueFiles:
+            - values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
