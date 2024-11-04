@@ -1,0 +1,8 @@
+apiVersion: v2
+name: provision-argocd
+description: A Helm chart for ArgoCD Application Provisioning
+version: 0.1.0
+dependencies:
+  - name: k8-argocd-provisioning
+    version: "0.1.0"
+    repository: "https://raw.githubusercontent.com/kcsoukup/k8-argocd-provisioning/main/"

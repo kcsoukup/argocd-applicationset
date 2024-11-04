@@ -1,0 +1,32 @@
+k8-argocd-provisioning:
+  appproject:
+    name: raining-blood
+    description: "Raining Blood Application"
+    repositories:
+      - https://github.com/kcsoukup/argocd-apps.git
+    destinations:
+      namespace: slayer
+      server: https://kubernetes.default.svc
+
+  application:
+    name: raining-blood
+    source:
+      repoURL: https://github.com/kcsoukup/argocd-apps.git
+      path: whatpod
+      targetRevision: HEAD
+      helm:
+        valueFiles:
+          - values-slayer.yaml
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: slayer
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
+      retry:
+        limit: 3
+        backoff:
+          duration: "5s"
+          factor: 2
+          maxDuration: "3m"
