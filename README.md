@@ -1,8 +1,10 @@
 # ArgoCD ApplicationSet using a Git Generator to Deploy Apps
 This is a quick and dirty guide to using ArgoCD ApplicationSets to iterate through a Git Repository and install multiple applications dynamically, a GitOps pattern.
 
-Note: The namespace generator is reliant on https://github.com/kcsoukup/k8-namespace-provisioning for Helm dependencies... another area of study.
-
+#### Notes
+- Instructions below cover namespaces only, application deployments are nearly identical.
+- The namespace generator is reliant on https://github.com/kcsoukup/k8-namespace-provisioning for Helm dependencies.
+- The application generator is reliant on https://github.com/kcsoukup/k8-argocd-provisioning for Helm dependencies and deploys applications that are positioned in the https://github.com/kcsoukup/argocd-apps repository, a little more complex than namespaces.
 
 #### Repo Directory Structure
 Each namespace has its own Helm Charts, which uses a dependency Helm Chart for consistency
