@@ -115,3 +115,5 @@ argocd/appset-namespace-mushroomhead  https://kubernetes.default.svc  argocd    
 argocd/appset-namespace-pantera       https://kubernetes.default.svc  argocd     default  Synced  Healthy  Auto-Prune  <none>      https://github.com/kcsoukup/argo-appsofapps.git  namespaces/pantera       HEAD
 argocd/appset-namespace-slayer        https://kubernetes.default.svc  argocd     default  Synced  Healthy  Auto-Prune  <none>      https://github.com/kcsoukup/argo-appsofapps.git  namespaces/slayer        HEAD
 ```
+   
+#### EOF
